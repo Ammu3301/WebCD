@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #d7bde2;
+            text-align:center;
+        }
+        .calculator {
+            background-color: #fff ;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0px 0px 10px rgba(127, 0, 255, 1);
+            text-align: center;
+        }
+        .calculator input {
+            width: 90%;
+            padding: 10px;
+            font-size: 20px;
+            margin-bottom: 10px;
+            border: 2px solid #884ea0;
+            border-radius: 5px;
+            text-color:#420784;
+        }
+        .calculator button {
+            padding: 10px;
+            font-size: 18px;
+            margin: 5px;
+            width: 60px;
+            background-color: #884ea0 ;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .calculator button:hover {            
+            background-color: #b477f8 ;
+        }
+       main {
+         min-height: 100vh; 
+         display: flex;
+         flex-direction: column;
+         justify-content: flex-start; 
+       }
+     footer {
+        position: fixed; 
+        bottom: 0;
+        left: 0;
+        width: 100%; 
+        background-color: #9b59b6; 
+        padding: 10px; 
+        text-align: center;
+      }
+      header {
+            position:fixed;
+            top:0;
+            left:0;
+            background-color: #9b59b6;
+            color: white;
+            width: 100%;
+            padding: 10px;
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <h1 style="color:#884ea0;">I'm a Mini Calc</h1>
+        <input id="display" type="text" readonly writeonly />
+        <br/>
+        <button onclick="appendNumber('1')">1</button>
+        <button onclick="appendNumber('2')">2</button>
+        <button onclick="appendNumber('3')">3</button>
+        <button onclick="appendNumber('+')">+</button>
+        <br/>
+        <button onclick="appendNumber('4')">4</button>
+        <button onclick="appendNumber('5')">5</button>
+        <button onclick="appendNumber('6')">6</button>
+        <button onclick="appendNumber('-')">-</button>
+        <br/>
+        <button onclick="appendNumber('7')">7</button>
+        <button onclick="appendNumber('8')">8</button>
+        <button onclick="appendNumber('9')">9</button>
+        <button onclick="appendNumber('*')">*</button>
+        <br/>
+        <button onclick="appendNumber('0')">0</button>
+        <button onclick="clearDisplay()">AC</button>
+        <button onclick="calculate()">=</button>
+        <button onclick="appendNumber('/')">/</button>
+    </div>
+    <script>
+    const display = document.getElementById('display');
+    function appendNumber(value) {
+         display.value += value;
+    }
+    function clearDisplay() {
+        display.value = '';
+    }
+    function calculate() {
+    try {
+      display.value = eval(display.value);
+    } catch (error) {
+        display.value = 'Error';
+    }
+  }
+  </script>
+<main>
+<header>
+        <h1 style="color:#f0f0f0;">Welcome to My Mini Calc</h1>
+</header>
+<footer>
+    <p>&copy; 2025 My Mini Calculator</p>
+    <a href="https://www.bodh1oh1.com">bodh1oh1.com</a>
+</footer>
+</main>
+</body>
+</html>
